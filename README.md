@@ -14,7 +14,7 @@ Batch-Optimizer is a command-line interface (CLI) tool developed in 2014 that si
 To use Batch-Optimizer, clone this repository to your local machine using:
 
 ```bash
-git clone https://github.com/your-username/Batch-Optimize.git
+git clone https://github.com/your-username/Batch-Optimizer.git
 ```
 
 ## Links
