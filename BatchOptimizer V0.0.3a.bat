@@ -25,6 +25,8 @@ echo.[3] SystemInfo checker
 echo _______________________________________
 echo [4] Tasklist
 echo _______________________________
+echo [5] Window Activation Key
+echo _______________________________
 echo.
 echo.
 echo.
