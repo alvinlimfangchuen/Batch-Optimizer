@@ -37,6 +37,7 @@ if %ch%==1 goto pc
 If %ch%==2 goto dns
 if %ch%==3 goto cpu
 if %ch%==4 goto tsk
+if %ch%==5 goto key
 if %ch%==up goto up
 IF not exist %ch%==1
 if not exist %ch%==2
@@ -102,3 +103,10 @@ pause
 cls
 goto home
 
+:key
+echo Check Window Activation Key
+pause
+wmic path softwarelicensingservice get OA3xOriginalProductKey
+set /p n=Homepage(B):
+cls
+goto home
