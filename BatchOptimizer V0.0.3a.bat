@@ -30,7 +30,7 @@ echo _______________________________
 echo.
 echo.
 echo.
-echo ________________________________________________________Developer@DNAProject_Cmd
+echo ________________________________________________________Developer@Dok
 set /p ch=Enter Code here:
 cls
 if %ch%==1 goto pc
