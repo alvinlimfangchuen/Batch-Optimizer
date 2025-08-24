@@ -1,14 +1,29 @@
 @echo off
 setlocal EnableDelayedExpansion
 
+:: Check if running as administrator
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+    echo Note: Some features may require administrator privileges
+    timeout /t 2 >nul
+)
+
 :home
 cls
 color e
 title BatchOptimizer v0.0.3
 
-REM ASCII Art Banner
 echo *___________________________BatchOptimizer V0.0.3__________________________*
-:: Keep your existing ASCII art here...
+echo 0000000000    00          00       000000                
+echo 0         00  00 00       0      00      00                      
+echo 0         00  00  00      00    00        00                           
+echo 0         00  00   00     00    00        00                                    
+echo O         00  00    00    00    00        00                                          
+echo 0         00  00     00   00    000000000000                                                        
+echo 0         00  00      00  00    00        00                                          
+echo 0         00  00       00 00    00        00                                     
+echo 0        00   00        0000    00        00               
+echo 000000000     00         000    00        00 Project PRESENTS
 
 REM Menu Options
 echo.
@@ -37,31 +52,67 @@ if "%ch%"=="3" goto cpu
 if "%ch%"=="4" goto tsk
 if "%ch%"=="5" goto key
 
-echo Invalid choice! Please try again.
+echo.
+echo Invalid choice! Please select a valid option (1-5, UP, or X).
+echo.
 timeout /t 2 >nul
 goto home
 
-REM Add your label sections here (:pc, :dns, etc.)
 :pc
-REM Your ping checker code
+echo You have selected Ping Checker
+echo Good Ping: Below 200ms
+echo Press Enter to proceed:
+pause
+ping google.com
+echo.
+echo Back to Homepage
+set /p h=Return to Homepage (B): 
+cls
 goto home
 
 :dns
-REM Your DNS cleaner code
+echo You Have Selected DNS Cleaner
+echo *DNS Cleaner - Clean up your DNS for better internet*
+set /p l=Press enter to proceed: 
+timeout /t 4 /nobreak >nul
+ipconfig/flushdns
+echo DNS Cleaned
+set /p h=Return to Homepage (B): 
+cls
 goto home
 
 :cpu
-REM Your SystemInfo code
+echo SystemInfo Checker:
+echo *Show all your system information*
+pause
+systeminfo
+set /p n=Return to Homepage (B): 
+cls
 goto home
 
 :tsk
-REM Your tasklist code
+echo _______________________________ Tasklist: _______________________________________
+echo *Display the tasks that are running on your computer in the background*
+pause 
+tasklist
+set /p n=Return to Homepage (B): 
+cls
 goto home
 
 :key
-REM Your Windows activation key code
+echo Check Windows Activation Key
+pause
+wmic path softwarelicensingservice get OA3xOriginalProductKey
+set /p n=Return to Homepage (B): 
+cls
 goto home
 
 :up
-REM Your unlimited ping check code
+echo Unlimited PingCheck:
+echo * Pinging unlimited to check your ping until you close *
+echo * Good for gamers to check their games such as Dota etc.
+pause
+ping google.com -t
+set /p h=Return to Homepage (B): 
+cls
 goto home

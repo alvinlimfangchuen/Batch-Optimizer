@@ -1,5 +1,15 @@
 @echo off
+setlocal EnableDelayedExpansion
+
+:: Check if running as administrator
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+    echo Note: Some features may require administrator privileges
+    timeout /t 2 >nul
+)
+
 :home
+cls
 color e
 echo *___________________________BatchOptimizer V0.0.3__________________________*
 echo 0000000000    00          00       000000                
@@ -13,37 +23,30 @@ echo 0         00  00       00 00    00        00
 echo 0        00   00        0000    00        00               
 echo 000000000     00         000    00        00 Project PRESENTS               
 title BatchOptimizer
-set ch==1
+set ch=1
 echo Select Tools:
+echo =============
 echo [1] Ping Checker
-echo.
-echo [up] Unlimited PingCheck
-echo _______________________________________
 echo [2] DNS Cleaner 
-echo _______________________________________
-echo.[3] SystemInfo checker
-echo _______________________________________
+echo [3] SystemInfo Checker
 echo [4] Tasklist
-echo _______________________________
-echo [5] Window Activation Key
-echo _______________________________
+echo [5] Windows Activation Key
+echo [UP] Unlimited PingCheck
+echo [X] Exit Program
+echo _______________________________________
 echo.
 echo.
 echo.
 echo ________________________________________________________Developer@toto
-set /p ch=Enter Code here:
+set /p ch=Enter your choice: 
 cls
-if %ch%==1 goto pc
-If %ch%==2 goto dns
-if %ch%==3 goto cpu
-if %ch%==4 goto tsk
-if %ch%==5 goto key
-if %ch%==up goto up
-IF not exist %ch%==1
-if not exist %ch%==2
-if not exist %ch%==3
-if not exist %ch%==4
-if not exist %ch%==up
+if /i "%ch%"=="x" exit /b
+if /i "%ch%"=="up" goto up
+if "%ch%"=="1" goto pc
+if "%ch%"=="2" goto dns
+if "%ch%"=="3" goto cpu
+if "%ch%"=="4" goto tsk
+if "%ch%"=="5" goto key
 goto error
 
 :pc
@@ -53,37 +56,37 @@ echo Press Enter to Proceed:
 pause
 ping google.com
 Echo Back To Homepage
-set /p h=Homepage(B):
+set /p h=Return to Homepage (B): 
 cls
 goto home
 
 :up
 echo Unlimited PingCheck:
-echo * pinging Unlimted to check ur ping untill your close*
-echo * Good for Gamers to check their Games such as Dota etc.
+echo * Pinging unlimited to check your ping until you close *
+echo * Good for gamers to check their games such as Dota etc.
 pause
 ping google.com -t
-set /p h=Homepage[b]:
+set /p h=Return to Homepage (B): 
 
 
 
 :dns
-echo Your Have Selected DNS Cleaner
-echo *DNS Cleaner- Clean up ur DNS for better internet
+echo You Have Selected DNS Cleaner
+echo *DNS Cleaner - Clean up your DNS for better internet*
 set /p l=Press enter to proceed
 timeout /t 4 /nobreak
 ipconfig/flushdns
 echo DNS Cleaned
-set /p h=Homepage(B):
+set /p h=Return to Homepage (B): 
 cls
 goto home
 
 :cpu
 echo SystemInfo Checker:
-*Show all your system infomation*
+echo *Show all your system information*
 pause
 systeminfo
-set /p n=Homepage(B):
+set /p n=Return to Homepage (B): 
 cls
 goto home
 
@@ -92,21 +95,21 @@ echo _______________________________ Tasklist:__________________________________
 echo *Display the task that running on your computer background*
 pause 
 tasklist
-set /p n=Homepage(B):
+set /p n=Return to Homepage (B): 
 cls
 goto home
 
 :error
-echo Code error
-echo  please select the right code
-pause
-cls
+echo.
+echo Invalid choice! Please select a valid option (1-5, UP, or X).
+echo.
+timeout /t 2 >nul
 goto home
 
 :key
-echo Check Window Activation Key
+echo Check Windows Activation Key
 pause
 wmic path softwarelicensingservice get OA3xOriginalProductKey
-set /p n=Homepage(B):
+set /p n=Return to Homepage (B): 
 cls
 goto home
