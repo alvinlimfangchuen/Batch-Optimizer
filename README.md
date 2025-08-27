@@ -1,67 +1,62 @@
 # Batch-Optimizer
 
-Batch-Optimizer is a command-line interface (CLI) tool developed in 2014 that provides various system maintenance and diagnostic utilities. It's built with batch scripting to help users perform common system tasks efficiently.
+A lightweight CLI system maintenance tool built with batch scripting for Windows users.
 
-# <img src="https://alvinlfc.com/image/dna.jpg" >
+## Overview
+
+Batch-Optimizer is a command-line utility developed in 2014 that provides essential system diagnostic and maintenance features. Designed for efficiency and ease of use, it helps users perform common system tasks through a simple menu interface.
 
 ## Features
 
-1. **Ping Checker**
+### Network Diagnostics
 
-   - Regular ping test to google.com
-   - Unlimited ping monitoring mode (-t flag)
-   - Useful for gamers to monitor network latency
-   - Includes good ping threshold indication (below 200ms)
+- **Ping Checker**: Test connectivity to google.com with latency monitoring
+- **Unlimited Ping**: Continuous network monitoring for gamers and network administrators
+- **DNS Cache Cleaner**: Flush DNS resolver cache to resolve connectivity issues
 
-2. **DNS Cache Cleaner**
+### System Utilities
 
-   - Flushes DNS resolver cache using ipconfig/flushdns
-   - Helps resolve network connectivity issues
-   - Improves internet connection reliability
+- **System Information**: Display detailed hardware and software specifications
+- **Task Manager**: View running processes and monitor system resource usage
+- **Windows Activation**: Retrieve Windows product key using WMIC
 
-3. **System Information**
+## Quick Start
 
-   - Displays detailed system specifications
-   - Shows hardware and software configuration
-   - Useful for system diagnostics
+1. **Download**
 
-4. **Task List Viewer**
+   ```bash
+   git clone https://github.com/alvinlimfangchuen/Batch-Optimizer.git
+   ```
 
-   - Shows all running processes
-   - Helps monitor system resource usage
-   - Identify background applications
+2. **Run**
+   Execute `BatchOptimizer V0.0.3a.bat`
 
-5. **Windows Activation Key Checker**
-   - Retrieves Windows product key information
-   - Uses WMIC to display OEM product key
+3. **Navigate**
+   - Select options [1-5] from the main menu
+   - Press 'B' to return to main menu
+   - Use 'up' for unlimited ping monitoring
 
-## Installation
+## Menu Options
 
-1. Clone the repository:
+| Option | Function               |
+| ------ | ---------------------- |
+| 1      | Ping Checker           |
+| up     | Unlimited Ping Monitor |
+| 2      | DNS Cache Cleaner      |
+| 3      | System Information     |
+| 4      | Process List           |
+| 5      | Windows Activation Key |
 
-```bash
-git clone https://github.com/alvinlimfangchuen/Batch-Optimizer.git
-```
+## Requirements
 
-2. Run the batch file `BatchOptimizer V0.0.3a.bat`
+- Windows OS
+- Command Prompt access
+- Administrator privileges (recommended)
 
-## Usage
+## Resources
 
-Simply run the batch file and select an option from the menu by entering the corresponding number:
+- [Development Blog Post (2014)](https://alvinlfc.blogspot.com/2014/08/dnaproject-released-batchoptimizer.html)
 
-- [1] Ping Checker
-- [up] Unlimited PingCheck
-- [2] DNS Cleaner
-- [3] SystemInfo checker
-- [4] Tasklist
-- [5] Window Activation Key
+---
 
-Type 'B' to return to the main menu after using any feature.
-
-## Links
-
-- [Original Blog Post (2014)](https://alvinlfc.blogspot.com/2014/08/dnaproject-released-batchoptimizer.html)
-
-## Note
-
-This tool was developed during my third year of secondary school at age 15 as a learning project.
+_Originally developed as a learning project during secondary school._
