@@ -1,5 +1,5 @@
 @echo off
-setlocal EnableDelayedExpansion
+setlocal
 
 :: Check if running as administrator
 net session >nul 2>&1
@@ -41,12 +41,12 @@ echo ________________________________________________________Developer@toto
 
 :input
 set "ch="
-set /p "ch=Enter your choice (1-5, UP, or X to exit): "
+set /p "ch=Enter your choice: "
 
 REM Input validation
 if /i "%ch%"=="x" exit /b
 if /i "%ch%"=="up" goto up
-if "%ch%"=="1" goto pc
+if "%ch%"=="1" goto ping_checker
 if "%ch%"=="2" goto dns
 if "%ch%"=="3" goto cpu
 if "%ch%"=="4" goto tsk
@@ -58,26 +58,24 @@ echo.
 timeout /t 2 >nul
 goto home
 
-:pc
+:ping_checker
 echo You have selected Ping Checker
 echo Good Ping: Below 200ms
-echo Press Enter to proceed:
 pause
 ping google.com
 echo.
-echo Back to Homepage
-set /p h=Return to Homepage (B): 
+pause
 cls
 goto home
 
 :dns
 echo You Have Selected DNS Cleaner
 echo *DNS Cleaner - Clean up your DNS for better internet*
-set /p l=Press enter to proceed: 
-timeout /t 4 /nobreak >nul
+pause
 ipconfig/flushdns
 echo DNS Cleaned
-set /p h=Return to Homepage (B): 
+echo.
+pause
 cls
 goto home
 
@@ -86,16 +84,18 @@ echo SystemInfo Checker:
 echo *Show all your system information*
 pause
 systeminfo
-set /p n=Return to Homepage (B): 
+echo.
+pause
 cls
 goto home
 
 :tsk
 echo _______________________________ Tasklist: _______________________________________
 echo *Display the tasks that are running on your computer in the background*
-pause 
+pause
 tasklist
-set /p n=Return to Homepage (B): 
+echo.
+pause
 cls
 goto home
 
@@ -103,16 +103,21 @@ goto home
 echo Check Windows Activation Key
 pause
 wmic path softwarelicensingservice get OA3xOriginalProductKey
-set /p n=Return to Homepage (B): 
+echo.
+pause
 cls
 goto home
 
 :up
 echo Unlimited PingCheck:
-echo * Pinging unlimited to check your ping until you close *
-echo * Good for gamers to check their games such as Dota etc.
+echo * Pinging google.com until you stop it (Ctrl+C).
+echo * Good for gamers to monitor their connection.
 pause
+echo.
+echo Press Ctrl+C to stop pinging and return to the menu.
 ping google.com -t
-set /p h=Return to Homepage (B): 
+echo.
+echo Ping stopped.
+pause
 cls
 goto home
